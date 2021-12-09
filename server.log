@@ -1,0 +1,36 @@
+2021/12/09 05:34:17 
+2021/12/09 05:34:17 Servidor iniciado
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /rol                      --> pollitoBackendGolang/Controllers.ListRol (5 handlers)
+[GIN-debug] GET    /rol/:id                  --> pollitoBackendGolang/Controllers.GetOneRol (5 handlers)
+[GIN-debug] POST   /rol                      --> pollitoBackendGolang/Controllers.AddNewRol (5 handlers)
+[GIN-debug] PUT    /rol/:id                  --> pollitoBackendGolang/Controllers.PutOneRol (5 handlers)
+[GIN-debug] DELETE /rol/:id                  --> pollitoBackendGolang/Controllers.DeleteRol (5 handlers)
+[GIN-debug] GET    /usuario                  --> pollitoBackendGolang/Controllers.ListUsuario (5 handlers)
+[GIN-debug] GET    /usuario/:id              --> pollitoBackendGolang/Controllers.GetOneUsuario (5 handlers)
+[GIN-debug] POST   /usuario                  --> pollitoBackendGolang/Controllers.AddNewUsuario (5 handlers)
+[GIN-debug] PUT    /usuario/:id              --> pollitoBackendGolang/Controllers.PutOneUsuario (5 handlers)
+[GIN-debug] DELETE /usuario/:id              --> pollitoBackendGolang/Controllers.DeleteUsuario (5 handlers)
+[GIN-debug] GET    /vacuna                   --> pollitoBackendGolang/Controllers.ListVacuna (5 handlers)
+[GIN-debug] GET    /vacuna/:id               --> pollitoBackendGolang/Controllers.GetOneVacuna (5 handlers)
+[GIN-debug] POST   /vacuna                   --> pollitoBackendGolang/Controllers.AddNewVacuna (5 handlers)
+[GIN-debug] PUT    /vacuna/:id               --> pollitoBackendGolang/Controllers.PutOneVacuna (5 handlers)
+[GIN-debug] DELETE /vacuna/:id               --> pollitoBackendGolang/Controllers.DeleteVacuna (5 handlers)
+[GIN-debug] GET    /centro_vacunacion        --> pollitoBackendGolang/Controllers.ListCentro_Vacunacion (5 handlers)
+[GIN-debug] GET    /centro_vacunacion/:id    --> pollitoBackendGolang/Controllers.GetOneCentro_Vacunacion (5 handlers)
+[GIN-debug] POST   /centro_vacunacion        --> pollitoBackendGolang/Controllers.AddNewCentro_Vacunacion (5 handlers)
+[GIN-debug] PUT    /centro_vacunacion/:id    --> pollitoBackendGolang/Controllers.PutOneCentro_Vacunacion (5 handlers)
+[GIN-debug] DELETE /centro_vacunacion/:id    --> pollitoBackendGolang/Controllers.DeleteCentro_Vacunacion (5 handlers)
+[GIN-debug] GET    /grupo_vacunacion         --> pollitoBackendGolang/Controllers.ListGrupo_Vacunacion (5 handlers)
+[GIN-debug] GET    /grupo_vacunacion/:id     --> pollitoBackendGolang/Controllers.GetOneGrupo_Vacunacion (5 handlers)
+[GIN-debug] POST   /grupo_vacunacion         --> pollitoBackendGolang/Controllers.AddNewGrupo_Vacunacion (5 handlers)
+[GIN-debug] PUT    /grupo_vacunacion/:id     --> pollitoBackendGolang/Controllers.PutOneGrupo_Vacunacion (5 handlers)
+[GIN-debug] DELETE /grupo_vacunacion/:id     --> pollitoBackendGolang/Controllers.DeleteGrupo_Vacunacion (5 handlers)
+[GIN-debug] POST   /autenticacion/login      --> pollitoBackendGolang/Controllers.IniciarSesion (5 handlers)
+[GIN-debug] GET    /                         --> main.main.func1 (4 handlers)
+[GIN-debug] Listening and serving HTTP on :3000
