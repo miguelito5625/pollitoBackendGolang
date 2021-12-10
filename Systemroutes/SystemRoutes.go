@@ -16,5 +16,9 @@ func SetupRouter() *gin.Engine {
 	Grupo_Vacunacion_Routes(r)
 	Autenticacion_Routes(r)
 
+	r.NoRoute(func(c *gin.Context) {
+		c.JSON(404, gin.H{"code": "PAGE_NOT_FOUND", "message": "Page not found"})
+	})
+
 	return r
 }

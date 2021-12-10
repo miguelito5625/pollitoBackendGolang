@@ -1,5 +1,5 @@
-2021/12/09 05:34:17 
-2021/12/09 05:34:17 Servidor iniciado
+2021/12/09 19:46:07 
+2021/12/09 19:46:07 Servidor iniciado
 [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
 
 [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
@@ -34,3 +34,6 @@
 [GIN-debug] POST   /autenticacion/login      --> pollitoBackendGolang/Controllers.IniciarSesion (5 handlers)
 [GIN-debug] GET    /                         --> main.main.func1 (4 handlers)
 [GIN-debug] Listening and serving HTTP on :3000
+2021/12/09 19:46:11 Esto es un middleware
+2021/12/09 19:46:11 Token: 
+[GIN] 2021/12/09 - 19:46:11 | 404 |  136.237165ms |             ::1 | GET      "/usuario/1"

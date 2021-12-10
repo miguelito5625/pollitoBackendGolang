@@ -40,7 +40,7 @@ func GetOneUsuario(c *gin.Context) {
 	var usuario Models.Usuario
 	err := Models.GetOneUsuario(&usuario, id)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, usuario, "Error")
+		ApiHelpers.RespondJSON(c, 404, nil, "Usuario no existe")
 	} else {
 		ApiHelpers.RespondJSON(c, 200, usuario, "ok")
 	}
