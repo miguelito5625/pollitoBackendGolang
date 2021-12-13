@@ -11,9 +11,6 @@ func SetupRouter() *gin.Engine {
 
 	Rol_Routes(r)
 	Usuario_Routes(r)
-	Vacuna_Routes(r)
-	Centro_Vacunacion_Routes(r)
-	Grupo_Vacunacion_Routes(r)
 	Autenticacion_Routes(r)
 
 	r.NoRoute(func(c *gin.Context) {

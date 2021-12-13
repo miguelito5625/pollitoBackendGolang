@@ -1,5 +1,5 @@
-2021/12/09 21:45:35 
-2021/12/09 21:45:35 Servidor iniciado
+2021/12/12 18:11:50 
+2021/12/12 18:11:50 Servidor iniciado
 [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
 
 [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
@@ -34,36 +34,11 @@
 [GIN-debug] POST   /autenticacion/login      --> pollitoBackendGolang/Controllers.IniciarSesion (5 handlers)
 [GIN-debug] GET    /                         --> main.main.func1 (4 handlers)
 [GIN-debug] Listening and serving HTTP on :3000
-2021/12/09 21:45:47 Esto es un middleware
-2021/12/09 21:45:47 Token: 
-2021/12/09 21:45:47 Success inserted rol: {{1 2021-12-09 21:45:47.521 -0600 CST 2021-12-09 21:45:47.521 -0600 CST {0001-01-01 00:00:00 +0000 UTC false}} 2 Usuario}
-[GIN] 2021/12/09 - 21:45:47 | 200 |  293.069624ms |             ::1 | POST     "/rol"
-2021/12/09 21:45:49 Esto es un middleware
-2021/12/09 21:45:49 Token: 
-2021/12/09 21:45:49 Success list rols
-[GIN] 2021/12/09 - 21:45:49 | 200 |   73.302689ms |             ::1 | GET      "/rol"
-2021/12/09 21:45:57 Esto es un middleware
-2021/12/09 21:45:57 Token: 
-2021/12/09 21:45:58 Success inserted usuario: {{1 2021-12-09 21:45:58.715 -0600 CST 2021-12-09 21:45:58.715 -0600 CST {0001-01-01 00:00:00 +0000 UTC false}} 55883388 Ronaldo Morales 1998-09-05 $2a$14$955pk1.N9EgPu3Fz/ZS.jeOPeDsPB2BXR7lRQ2tYTkNhxKHLWMIO6 1 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} 0 }}
-[GIN] 2021/12/09 - 21:45:58 | 200 |  1.379932658s |             ::1 | POST     "/usuario"
-[GIN] 2021/12/09 - 21:47:57 | 404 |      22.028µs |             ::1 | POST     "/login"
-2021/12/09 21:49:26 Esto es un middleware
-2021/12/09 21:49:26 Token: 
-2021/12/09 21:49:26 {55883388 54321}
-2021/12/09 21:49:26 LA CLAVE ES:  $2a$14$955pk1.N9EgPu3Fz/ZS.jeOPeDsPB2BXR7lRQ2tYTkNhxKHLWMIO6
-[GIN] 2021/12/09 - 21:49:27 | 200 |  1.478720931s |             ::1 | POST     "/autenticacion/login"
-2021/12/09 21:49:33 Esto es un middleware
-2021/12/09 21:49:33 Token: 
-2021/12/09 21:49:33 {55883388 54321x}
-2021/12/09 21:49:33 LA CLAVE ES:  $2a$14$955pk1.N9EgPu3Fz/ZS.jeOPeDsPB2BXR7lRQ2tYTkNhxKHLWMIO6
-2021/12/09 21:49:34 Error autenticacion clave incorrecta
-[GIN] 2021/12/09 - 21:49:34 | 404 |  1.403527334s |             ::1 | POST     "/autenticacion/login"
-2021/12/09 21:49:40 Esto es un middleware
-2021/12/09 21:49:40 Token: 
-2021/12/09 21:49:40 {55883388x 54321x}
-[GIN] 2021/12/09 - 21:49:40 | 404 |   366.08545ms |             ::1 | POST     "/autenticacion/login"
-2021/12/09 21:49:48 Esto es un middleware
-2021/12/09 21:49:48 Token: 
-2021/12/09 21:49:48 {55883388 54321}
-2021/12/09 21:49:48 LA CLAVE ES:  $2a$14$955pk1.N9EgPu3Fz/ZS.jeOPeDsPB2BXR7lRQ2tYTkNhxKHLWMIO6
-[GIN] 2021/12/09 - 21:49:49 | 200 |  1.332715085s |             ::1 | POST     "/autenticacion/login"
+2021/12/12 18:12:12 Welcome to API GO
+[GIN] 2021/12/12 - 18:12:12 | 200 |     379.847µs |             ::1 | GET      "/"
+2021/12/12 18:12:23 Welcome to API GO
+[GIN] 2021/12/12 - 18:12:23 | 200 |     247.577µs |             ::1 | GET      "/"
+2021/12/12 18:12:24 Welcome to API GO
+[GIN] 2021/12/12 - 18:12:24 | 200 |     158.045µs |             ::1 | GET      "/"
+2021/12/12 18:12:24 Welcome to API GO
+[GIN] 2021/12/12 - 18:12:24 | 200 |     171.653µs |             ::1 | GET      "/"
