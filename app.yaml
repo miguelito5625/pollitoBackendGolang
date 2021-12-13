@@ -15,9 +15,13 @@
 runtime: go116
 # runtime: go115
 
+includes:
+- secrets.yaml
+
 # env: flex
-env_variables:
-  TEST_MESSAGE: "HELLO MIKE"
+
+# env_variables:
+#   TEST_MESSAGE: "HELLO MIKE" 
 
 # This sample incurs costs to run on the App Engine flexible environment. 
 # The settings below are to reduce costs during testing and are not appropriate

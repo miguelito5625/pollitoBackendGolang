@@ -6,6 +6,7 @@ import (
 	"pollitoBackendGolang/Database"
 	"pollitoBackendGolang/Database/Migrations"
 	"pollitoBackendGolang/Systemroutes"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -33,17 +34,25 @@ func main() {
 	log.Println("Servidor iniciado")
 
 	r := Systemroutes.SetupRouter()
+
+	location, err := time.LoadLocation("America/Guatemala")
+	if err != nil {
+		panic(err)
+	}
+	currentTime := time.Now().In(location)
+
 	r.GET("/", func(c *gin.Context) {
-		log.Println("Welcome to API GO")
 		c.JSON(200, gin.H{
 			"message": "Hello!!! " + os.Getenv("TEST_MESSAGE"),
+			"DB_IP":   os.Getenv("DB_IP"),
+			"DATE: ":  currentTime.Format("2006-01-02 15:04:05"),
 		})
 	})
 	// User_routes.Routes(r)
 	// Product_routes.Routes(r)
 
 	//Para subir ha app engine hay que eliminar el puerto que se usa localmente
-	// r.Run()
+	r.Run()
 
-	r.Run(":3000")
+	// r.Run(":3000")
 }
