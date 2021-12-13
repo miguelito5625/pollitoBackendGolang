@@ -24,7 +24,7 @@ func ListUsuario(c *gin.Context) {
 func AddNewUsuario(c *gin.Context) {
 	var usuario Models.Usuario
 	c.BindJSON(&usuario)
-	usuario.Clave, _ = Services.HashPassword(usuario.Clave)
+	usuario.Password, _ = Services.HashPassword(usuario.Password)
 	err := Models.AddNewUsuario(&usuario)
 	if err != nil {
 		log.Println("Error on insert usuario:", usuario)

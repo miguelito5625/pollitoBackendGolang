@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func IniciarSesion(c *gin.Context) {
+func LoginUsuario(c *gin.Context) {
 	var credenciales Interfaces.Credenciales
 	c.BindJSON(&credenciales)
 	log.Println(credenciales)
@@ -22,7 +22,7 @@ func IniciarSesion(c *gin.Context) {
 		return
 	}
 
-	hashClave := usuario.Clave
+	hashClave := usuario.Password
 	log.Println("LA CLAVE ES: ", hashClave)
 
 	claveCorrecta := Services.CheckPasswordHash(credenciales.Clave, hashClave)
@@ -33,11 +33,11 @@ func IniciarSesion(c *gin.Context) {
 		return
 	}
 
-	var loginData Interfaces.UserLoginData
+	var loginData Interfaces.TokenUsuarioLoginData
 
 	loginData.Id = int(usuario.ID)
-	loginData.Cui = usuario.Cui
-	loginData.Name = usuario.Nombres + " " + usuario.Apeliidos
+	// loginData.Cui = usuario.Cui
+	// loginData.Name = usuario.Nombres + " " + usuario.Apeliidos
 	loginData.Rol = usuario.Rol.Rol
 
 	token, _ := Services.CreateToken(loginData)

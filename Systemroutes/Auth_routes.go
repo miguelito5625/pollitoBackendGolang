@@ -12,7 +12,7 @@ func Autenticacion_Routes(route *gin.Engine) {
 	autenticacionRoutes.Use(Middlewares.CheckAuth())
 	{
 
-		autenticacionRoutes.POST("/login", Controllers.IniciarSesion)
+		autenticacionRoutes.POST("/login", Controllers.LoginUsuario)
 
 		//asd
 	}

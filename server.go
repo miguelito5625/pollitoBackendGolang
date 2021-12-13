@@ -48,7 +48,7 @@ func main() {
 			"DATE: ":  currentTime.Format("2006-01-02 15:04:05"),
 		})
 	})
-	// User_routes.Routes(r)
+	// Usuario_routes.Routes(r)
 	// Product_routes.Routes(r)
 
 	//Para subir ha app engine hay que eliminar el puerto que se usa localmente

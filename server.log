@@ -31,7 +31,7 @@
 [GIN-debug] POST   /grupo_vacunacion         --> pollitoBackendGolang/Controllers.AddNewGrupo_Vacunacion (5 handlers)
 [GIN-debug] PUT    /grupo_vacunacion/:id     --> pollitoBackendGolang/Controllers.PutOneGrupo_Vacunacion (5 handlers)
 [GIN-debug] DELETE /grupo_vacunacion/:id     --> pollitoBackendGolang/Controllers.DeleteGrupo_Vacunacion (5 handlers)
-[GIN-debug] POST   /autenticacion/login      --> pollitoBackendGolang/Controllers.IniciarSesion (5 handlers)
+[GIN-debug] POST   /autenticacion/login      --> pollitoBackendGolang/Controllers.LoginUsuario (5 handlers)
 [GIN-debug] GET    /                         --> main.main.func1 (4 handlers)
 [GIN-debug] Listening and serving HTTP on :3000
 2021/12/12 18:12:12 Welcome to API GO
