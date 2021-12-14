@@ -46,22 +46,13 @@ func AddNewUsuario(c *gin.Context) {
 	err := Models.AddNewUsuario(&usuario)
 	if err != nil {
 		log.Println("Error on insert usuario:", usuario)
-		ApiHelpers.RespondJSON(c, 500, usuario, "Error")
+		ApiHelpers.RespondJSON(c, 500, usuario, "Error al intentar crear el usuario")
+		log.Println(err)
 	}
 
 	log.Println("Usuario creado: ", usuario)
 
-	ApiHelpers.RespondJSON(c, 200, nil, "ok")
-
-	// usuario.Password, _ = Services.HashPassword(usuario.Password)
-	// err := Models.AddNewUsuario(&usuario)
-	// if err != nil {
-	// 	log.Println("Error on insert usuario:", usuario)
-	// 	ApiHelpers.RespondJSON(c, 404, usuario, "Error")
-	// } else {
-	// 	log.Println("Success inserted usuario:", usuario)
-	// 	ApiHelpers.RespondJSON(c, 200, usuario, "ok")
-	// }
+	ApiHelpers.RespondJSON(c, 200, usuario, "ok")
 }
 
 func GetOneUsuario(c *gin.Context) {
