@@ -31,6 +31,13 @@ func AddNewRol(b *Rol) (err error) {
 	return nil
 }
 
+func AddNewMultipleRol(b *[]Rol) (err error) {
+	if err = Database.DB.Create(b).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
 func GetOneRol(b *Rol, id string) (err error) {
 	if err := Database.DB.Where("id = ?", id).First(b).Error; err != nil {
 		return err

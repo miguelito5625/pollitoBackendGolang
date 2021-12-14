@@ -13,12 +13,18 @@ func MigrateAll() {
 }
 
 func insertData() {
-	rol := Models.Rol{
-		Rol:         1,
-		Descripcion: "Admin",
+	rol := []Models.Rol{
+		{
+			Rol:         1,
+			Descripcion: "Admin",
+		},
+		{
+			Rol:         2,
+			Descripcion: "Usuario",
+		},
 	}
 
-	err := Models.AddNewRol(&rol)
+	err := Models.AddNewMultipleRol(&rol)
 	if err != nil {
 		log.Println("Error on insert rol:", err)
 	} else {
