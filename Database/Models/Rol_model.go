@@ -9,7 +9,7 @@ import (
 
 type Rol struct {
 	gorm.Model
-	Rol         int    `json:"rol"`
+	Rol         int    `gorm:"uniqueIndex", json:"rol"`
 	Descripcion string `json:"descripcion"`
 }
 

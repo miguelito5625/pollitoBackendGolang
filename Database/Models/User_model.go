@@ -9,12 +9,12 @@ import (
 
 type Usuario struct {
 	gorm.Model
-	Usuarioname string  `json:"usuarioname"`
-	Password    string  `json:"password"`
-	Persona_id  int     `json:"persona_id"`
-	Persona     Persona `gorm:"foreignkey:Persona_id"`
-	Rol_id      int     `json:"rol_id"`
-	Rol         Rol     `gorm:"foreignkey:Rol_id"`
+	Username   string  `json:"username"`
+	Password   string  `json:"password"`
+	Persona_id int     `json:"persona_id"`
+	Persona    Persona `gorm:"foreignkey:Persona_id"`
+	Rol_id     int     `json:"rol_id"`
+	Rol        Rol     `gorm:"foreignkey:Rol_id"`
 }
 
 func (b *Usuario) TableName() string {

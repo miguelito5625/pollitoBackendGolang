@@ -12,7 +12,7 @@ type DatosRegistroUsuario struct {
 	Nacimiento string `json:"nacimiento"`
 	Username   string `json:"username"`
 	Password   string `json:"password"`
-	Rol        int    `json:"tol"`
+	Rol_id     int    `json:"rol_id"`
 }
 
 type TokenUsuarioLoginData struct {
