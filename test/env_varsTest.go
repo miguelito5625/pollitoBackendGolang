@@ -15,10 +15,12 @@ func main() {
 	DB_USER := os.Getenv("DB_USERLOCAL")
 	DB_PASS := os.Getenv("DB_PASSLOCAL")
 	DB_NAME := os.Getenv("DB_NAMELOCAL")
+	ACCESS_SECRET_TOKEN := os.Getenv("ACCESS_SECRET_TOKEN")
 
 	fmt.Println("DB_IP:", DB_IP)
 	fmt.Println("DB_USER:", DB_USER)
 	fmt.Println("DB_PASS:", DB_PASS)
 	fmt.Println("DB_NAME:", DB_NAME)
+	fmt.Println("ACCESS_SECRET_TOKEN: ", ACCESS_SECRET_TOKEN)
 
 }

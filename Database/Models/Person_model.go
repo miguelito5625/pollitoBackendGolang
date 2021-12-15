@@ -11,7 +11,7 @@ type Persona struct {
 	gorm.Model
 	Cui        string `gorm:"unique", json:"cui"`
 	Nombres    string `json:"nombres"`
-	Apeliidos  string `json:"apellidos"`
+	Apellidos  string `json:"apellidos"`
 	Nacimiento string `json:"nacimiento"`
 }
 

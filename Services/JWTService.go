@@ -12,14 +12,14 @@ import (
 func CreateToken(usuario interface{}) (string, error) {
 	var err error
 	//Creating Access Token
-	os.Setenv("ACCESS_SECRET", "jdnfksdmfksd") //this should be in an env file
+	// os.Setenv("ACCESS_SECRET_TOKEN", "jdnfksdmfksd") //this should be in an env file
 	atClaims := jwt.MapClaims{}
 	// atClaims["authorized"] = true
 	atClaims["usuario"] = usuario
 	// atClaims["exp"] = time.Now().Add(time.Minute * 15).Unix()
 	atClaims["exp"] = time.Now().Add(time.Second * 15).Unix()
 	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)
-	token, err := at.SignedString([]byte(os.Getenv("ACCESS_SECRET")))
+	token, err := at.SignedString([]byte(os.Getenv("ACCESS_SECRET_TOKEN")))
 	if err != nil {
 		return "", err
 	}
@@ -33,7 +33,7 @@ func VerifyToken(r string) (*jwt.Token, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
-		return []byte(os.Getenv("ACCESS_SECRET")), nil
+		return []byte(os.Getenv("ACCESS_SECRET_TOKEN")), nil
 	})
 	if err != nil {
 		return nil, err

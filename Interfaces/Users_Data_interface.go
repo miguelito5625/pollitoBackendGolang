@@ -1,8 +1,8 @@
 package Interfaces
 
 type Credenciales struct {
-	Cui   string `json:"cui"`
-	Clave string `json:"clave"`
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 type DatosRegistroUsuario struct {
@@ -16,8 +16,10 @@ type DatosRegistroUsuario struct {
 }
 
 type TokenUsuarioLoginData struct {
-	Id   int
-	Cui  string
-	Name string
-	Rol  int
+	Id        int
+	Cui       string
+	Nombres   string
+	Apellidos string
+	Username  string
+	Rol       int
 }

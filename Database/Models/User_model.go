@@ -42,8 +42,8 @@ func GetOneUsuario(b *Usuario, id string) (err error) {
 	return nil
 }
 
-func LoginUsuario(b *Usuario, cui string) (err error) {
-	if err := Database.DB.Joins("Rol").Where("cui = ?", cui).First(b).Error; err != nil {
+func SearchUserForLogin(b *Usuario, username string) (err error) {
+	if err := Database.DB.Joins("Rol").Where("username = ?", username).First(b).Error; err != nil {
 		return err
 	}
 	return nil

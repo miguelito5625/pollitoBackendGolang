@@ -29,7 +29,7 @@ func AddNewUsuario(c *gin.Context) {
 	persona := Models.Persona{
 		Cui:        datosRegistroUsuario.Cui,
 		Nombres:    datosRegistroUsuario.Nombres,
-		Apeliidos:  datosRegistroUsuario.Apellidos,
+		Apellidos:  datosRegistroUsuario.Apellidos,
 		Nacimiento: datosRegistroUsuario.Nacimiento,
 	}
 

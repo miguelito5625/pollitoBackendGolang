@@ -13,31 +13,31 @@ import (
 func LoginUsuario(c *gin.Context) {
 	var credenciales Interfaces.Credenciales
 	c.BindJSON(&credenciales)
-	log.Println(credenciales)
 
 	var usuario Models.Usuario
-	err := Models.LoginUsuario(&usuario, credenciales.Cui)
+	err := Models.SearchUserForLogin(&usuario, credenciales.Username)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, nil, "usuario no existe")
+		ApiHelpers.RespondJSON(c, 404, credenciales, "user not exist")
 		return
 	}
 
 	hashClave := usuario.Password
-	log.Println("LA CLAVE ES: ", hashClave)
 
-	claveCorrecta := Services.CheckPasswordHash(credenciales.Clave, hashClave)
+	claveCorrecta := Services.CheckPasswordHash(credenciales.Password, hashClave)
 
 	if !claveCorrecta {
 		log.Println("Error autenticacion clave incorrecta")
-		ApiHelpers.RespondJSON(c, 404, nil, "Error: clave incorrecta")
+		ApiHelpers.RespondJSON(c, 404, credenciales, "Error: wrong password")
 		return
 	}
 
 	var loginData Interfaces.TokenUsuarioLoginData
 
 	loginData.Id = int(usuario.ID)
-	// loginData.Cui = usuario.Cui
-	// loginData.Name = usuario.Nombres + " " + usuario.Apeliidos
+	loginData.Cui = usuario.Persona.Cui
+	loginData.Nombres = usuario.Persona.Nombres
+	loginData.Apellidos = usuario.Persona.Apellidos
+	loginData.Username = usuario.Username
 	loginData.Rol = usuario.Rol.Rol
 
 	token, _ := Services.CreateToken(loginData)
