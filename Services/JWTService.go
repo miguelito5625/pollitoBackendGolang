@@ -15,7 +15,7 @@ func CreateToken(usuario interface{}) (string, error) {
 	// os.Setenv("ACCESS_SECRET_TOKEN", "jdnfksdmfksd") //this should be in an env file
 	atClaims := jwt.MapClaims{}
 	// atClaims["authorized"] = true
-	atClaims["usuario"] = usuario
+	atClaims["user"] = usuario
 	// atClaims["exp"] = time.Now().Add(time.Minute * 15).Unix()
 	atClaims["exp"] = time.Now().Add(time.Second * 15).Unix()
 	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)

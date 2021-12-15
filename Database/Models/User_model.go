@@ -22,7 +22,7 @@ func (b *Usuario) TableName() string {
 }
 
 func GetAllUsuario(b *[]Usuario) (err error) {
-	if err = Database.DB.Joins("Rol").Find(b).Error; err != nil {
+	if err = Database.DB.Joins("Rol").Joins("Persona").Find(b).Error; err != nil {
 		return err
 	}
 	return nil
@@ -43,7 +43,7 @@ func GetOneUsuario(b *Usuario, id string) (err error) {
 }
 
 func SearchUserForLogin(b *Usuario, username string) (err error) {
-	if err := Database.DB.Joins("Rol").Where("username = ?", username).First(b).Error; err != nil {
+	if err := Database.DB.Joins("Rol").Joins("Persona").Where("username = ?", username).First(b).Error; err != nil {
 		return err
 	}
 	return nil
