@@ -9,7 +9,7 @@ import (
 
 type Persona struct {
 	gorm.Model
-	Cui        string `gorm:"index:idx_name,unique", json:"cui"`
+	Cui        string `gorm:"unique", json:"cui"`
 	Nombres    string `json:"nombres"`
 	Apeliidos  string `json:"apellidos"`
 	Nacimiento string `json:"nacimiento"`

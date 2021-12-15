@@ -25,7 +25,6 @@ func ListUsuario(c *gin.Context) {
 func AddNewUsuario(c *gin.Context) {
 	var datosRegistroUsuario Interfaces.DatosRegistroUsuario
 	c.BindJSON(&datosRegistroUsuario)
-	log.Println("Registrando usuario: ", datosRegistroUsuario)
 
 	persona := Models.Persona{
 		Cui:        datosRegistroUsuario.Cui,
@@ -45,14 +44,13 @@ func AddNewUsuario(c *gin.Context) {
 
 	err := Models.AddNewUsuario(&usuario)
 	if err != nil {
-		log.Println("Error on insert usuario:", usuario)
+		log.Println("Error on insert usuario:", err)
 		ApiHelpers.RespondJSON(c, 500, usuario, "Error al intentar crear el usuario")
-		log.Println(err)
+	} else {
+		log.Println("Usuario creado: ", usuario)
+		ApiHelpers.RespondJSON(c, 200, usuario, "Usuario creado")
 	}
 
-	log.Println("Usuario creado: ", usuario)
-
-	ApiHelpers.RespondJSON(c, 200, usuario, "ok")
 }
 
 func GetOneUsuario(c *gin.Context) {
