@@ -1,0 +1,5 @@
+// Para ver los ultimos registros de la app
+gcloud app logs read
+
+// Para subir la app a App Engine
+gcloud app deploy app.yaml

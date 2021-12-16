@@ -12,6 +12,12 @@ import (
 func main() {
 
 	DB_IP := os.Getenv("DB_IPLOCAL")
+	fmt.Println("DB_IP:", DB_IP)
+
+	if len(DB_IP) <= 0 {
+		DB_IP = "104.197.144.126"
+	}
+
 	DB_USER := os.Getenv("DB_USERLOCAL")
 	DB_PASS := os.Getenv("DB_PASSLOCAL")
 	DB_NAME := os.Getenv("DB_NAMELOCAL")
