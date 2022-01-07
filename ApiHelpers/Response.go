@@ -1,8 +1,6 @@
 package ApiHelpers
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,7 +12,7 @@ type ResponseData struct {
 }
 
 func RespondJSON(w *gin.Context, status int, payload interface{}, message string) {
-	fmt.Println(message, payload)
+	// fmt.Println(message, payload)
 	var res ResponseData
 	res.Status = status
 	//res.Meta = utils.ResponseMessage(status)

@@ -11,10 +11,10 @@ import (
 // Main function
 func main() {
 
-	DB_IP := os.Getenv("DB_IPLOCAL")
-	DB_USER := os.Getenv("DB_USERLOCAL")
-	DB_PASS := os.Getenv("DB_PASSLOCAL")
-	DB_NAME := os.Getenv("DB_NAMELOCAL")
+	DB_IP := os.Getenv("DB_IP")
+	DB_USER := os.Getenv("DB_USER")
+	DB_PASS := os.Getenv("DB_PASS")
+	DB_NAME := os.Getenv("DB_NAME")
 	ACCESS_SECRET_TOKEN := os.Getenv("ACCESS_SECRET_TOKEN")
 
 	fmt.Println("DB_IP:", DB_IP)
