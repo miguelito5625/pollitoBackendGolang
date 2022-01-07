@@ -14,10 +14,14 @@ func LoginUsuario(c *gin.Context) {
 	var credenciales Interfaces.Credenciales
 	c.BindJSON(&credenciales)
 
+	log.Println("INICIANDO SESION")
+	log.Println("CREDENCIALES:")
+	log.Println(credenciales)
+
 	var usuario Models.Usuario
 	err := Models.SearchUserForLogin(&usuario, credenciales.Username)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, credenciales, "user not exist")
+		ApiHelpers.RespondLoginJSON(c, 404, credenciales, "user not exist")
 		return
 	}
 
@@ -27,7 +31,7 @@ func LoginUsuario(c *gin.Context) {
 
 	if !claveCorrecta {
 		log.Println("Error autenticacion clave incorrecta")
-		ApiHelpers.RespondJSON(c, 404, credenciales, "Error: wrong password")
+		ApiHelpers.RespondLoginJSON(c, 404, nil, "Error: wrong password")
 		return
 	}
 
@@ -41,6 +45,6 @@ func LoginUsuario(c *gin.Context) {
 	loginData.Rol = usuario.Rol.Rol
 
 	token, _ := Services.CreateToken(loginData)
-	ApiHelpers.RespondJSON(c, 200, token, "Login success")
+	ApiHelpers.RespondLoginJSON(c, 200, token, "Sesion iniciada")
 
 }
