@@ -43,7 +43,7 @@ func main() {
 
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "Hello!!! " + os.Getenv("TEST_MESSAGE"),
+			"message": "Mike Hello!!! " + os.Getenv("TEST_MESSAGE"),
 			"DB_IP":   os.Getenv("DB_IP"),
 			"DATE: ":  currentTime.Format("2006-01-02 15:04:05"),
 		})

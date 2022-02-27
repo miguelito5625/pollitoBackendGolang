@@ -21,7 +21,9 @@ func LoginUsuario(c *gin.Context) {
 	var usuario Models.Usuario
 	err := Models.SearchUserForLogin(&usuario, credenciales.Username)
 	if err != nil {
-		ApiHelpers.RespondLoginJSON(c, 404, credenciales, "user not exist")
+		// log.Println(err)
+		log.Println("Error autenticacion usuario no existe")
+		ApiHelpers.RespondLoginJSON(c, 404, nil, "Usuario no existe")
 		return
 	}
 
@@ -31,7 +33,7 @@ func LoginUsuario(c *gin.Context) {
 
 	if !claveCorrecta {
 		log.Println("Error autenticacion clave incorrecta")
-		ApiHelpers.RespondLoginJSON(c, 404, nil, "Error: wrong password")
+		ApiHelpers.RespondLoginJSON(c, 404, nil, "Contraseña incorrecta")
 		return
 	}
 
