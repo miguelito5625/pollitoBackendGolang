@@ -7,16 +7,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Usuario_Routes(route *gin.Engine) {
-	usuarioRoutes := route.Group("/usuario")
-	usuarioRoutes.Use(Middlewares.CheckAuth())
+func User_Routes(route *gin.Engine) {
+	userRoutes := route.Group("/user")
+	userRoutes.Use(Middlewares.CheckAuth())
 	{
 
-		usuarioRoutes.GET("", Controllers.ListUsuario)
-		usuarioRoutes.GET("/:id", Controllers.GetOneUsuario)
-		usuarioRoutes.POST("", Controllers.AddNewUsuario)
-		usuarioRoutes.PUT("/:id", Controllers.PutOneUsuario)
-		usuarioRoutes.DELETE("/:id", Controllers.DeleteUsuario)
+		userRoutes.GET("", Controllers.ListUser)
+		userRoutes.GET("/:id", Controllers.GetOneUser)
+		userRoutes.POST("", Controllers.AddNewUser)
+		userRoutes.PUT("/:id", Controllers.PutOneUser)
+		userRoutes.DELETE("/:id", Controllers.DeleteUser)
 
 	}
 

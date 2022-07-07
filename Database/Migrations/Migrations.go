@@ -8,7 +8,7 @@ import (
 
 func MigrateAll() {
 	Database.DB.AutoMigrate(&Models.Rol{})
-	Database.DB.AutoMigrate(&Models.Usuario{})
+	Database.DB.AutoMigrate(&Models.User{})
 	insertData()
 }
 
@@ -20,7 +20,7 @@ func insertData() {
 		},
 		{
 			Rol:         2,
-			Descripcion: "Usuario",
+			Descripcion: "User",
 		},
 	}
 

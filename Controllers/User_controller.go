@@ -10,83 +10,83 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ListUsuario(c *gin.Context) {
-	var usuario []Models.Usuario
-	err := Models.GetAllUsuario(&usuario)
+func ListUser(c *gin.Context) {
+	var user []Models.User
+	err := Models.GetAllUser(&user)
 	if err != nil {
-		log.Println("Error on list usuarios")
-		ApiHelpers.RespondJSON(c, 404, usuario, "Error")
+		log.Println("Error on list users")
+		ApiHelpers.RespondJSON(c, 404, user, "Error")
 	} else {
-		log.Println("Success list usuarios")
-		ApiHelpers.RespondJSON(c, 200, usuario, "ok")
+		log.Println("Success list users")
+		ApiHelpers.RespondJSON(c, 200, user, "ok")
 	}
 }
 
-func AddNewUsuario(c *gin.Context) {
-	var datosRegistroUsuario Interfaces.DatosRegistroUsuario
-	c.BindJSON(&datosRegistroUsuario)
+func AddNewUser(c *gin.Context) {
+	var datosRegistroUser Interfaces.DatosRegistroUser
+	c.BindJSON(&datosRegistroUser)
 
 	persona := Models.Persona{
-		Cui:        datosRegistroUsuario.Cui,
-		Nombres:    datosRegistroUsuario.Nombres,
-		Apellidos:  datosRegistroUsuario.Apellidos,
-		Nacimiento: datosRegistroUsuario.Nacimiento,
+		Cui:        datosRegistroUser.Cui,
+		Nombres:    datosRegistroUser.Nombres,
+		Apellidos:  datosRegistroUser.Apellidos,
+		Nacimiento: datosRegistroUser.Nacimiento,
 	}
 
-	hashedPassword, _ := Services.HashPassword(datosRegistroUsuario.Password)
+	hashedPassword, _ := Services.HashPassword(datosRegistroUser.Password)
 
-	usuario := Models.Usuario{
-		Username: datosRegistroUsuario.Username,
+	user := Models.User{
+		Username: datosRegistroUser.Username,
 		Password: hashedPassword,
 		Persona:  persona,
-		Rol_id:   datosRegistroUsuario.Rol_id,
+		Rol_id:   datosRegistroUser.Rol_id,
 	}
 
-	err := Models.AddNewUsuario(&usuario)
+	err := Models.AddNewUser(&user)
 	if err != nil {
-		log.Println("Error on insert usuario:", err)
-		ApiHelpers.RespondJSON(c, 500, usuario, "Error al intentar crear el usuario")
+		log.Println("Error on insert user:", err)
+		ApiHelpers.RespondJSON(c, 500, user, "Error al intentar crear el user")
 	} else {
-		log.Println("Usuario creado: ", usuario)
-		ApiHelpers.RespondJSON(c, 200, usuario, "Usuario creado")
+		log.Println("User creado: ", user)
+		ApiHelpers.RespondJSON(c, 200, user, "User creado")
 	}
 
 }
 
-func GetOneUsuario(c *gin.Context) {
+func GetOneUser(c *gin.Context) {
 	id := c.Params.ByName("id")
-	var usuario Models.Usuario
-	err := Models.GetOneUsuario(&usuario, id)
+	var user Models.User
+	err := Models.GetOneUser(&user, id)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, nil, "Usuario no existe")
+		ApiHelpers.RespondJSON(c, 404, nil, "User no existe")
 	} else {
-		ApiHelpers.RespondJSON(c, 200, usuario, "ok")
+		ApiHelpers.RespondJSON(c, 200, user, "ok")
 	}
 }
 
-func PutOneUsuario(c *gin.Context) {
-	var usuario Models.Usuario
+func PutOneUser(c *gin.Context) {
+	var user Models.User
 	id := c.Params.ByName("id")
-	err := Models.GetOneUsuario(&usuario, id)
+	err := Models.GetOneUser(&user, id)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, usuario, "Error")
+		ApiHelpers.RespondJSON(c, 404, user, "Error")
 	}
-	c.BindJSON(&usuario)
-	err = Models.PutOneUsuario(&usuario, id)
+	c.BindJSON(&user)
+	err = Models.PutOneUser(&user, id)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, usuario, "Error")
+		ApiHelpers.RespondJSON(c, 404, user, "Error")
 	} else {
-		ApiHelpers.RespondJSON(c, 200, usuario, "ok")
+		ApiHelpers.RespondJSON(c, 200, user, "ok")
 	}
 }
 
-func DeleteUsuario(c *gin.Context) {
-	var usuario Models.Usuario
+func DeleteUser(c *gin.Context) {
+	var user Models.User
 	id := c.Params.ByName("id")
-	err := Models.DeleteUsuario(&usuario, id)
+	err := Models.DeleteUser(&user, id)
 	if err != nil {
-		ApiHelpers.RespondJSON(c, 404, usuario, "Error")
+		ApiHelpers.RespondJSON(c, 404, user, "Error")
 	} else {
-		ApiHelpers.RespondJSON(c, 200, usuario, "ok")
+		ApiHelpers.RespondJSON(c, 200, user, "ok")
 	}
 }

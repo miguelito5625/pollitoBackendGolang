@@ -7,14 +7,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Autenticacion_Routes(route *gin.Engine) {
-	autenticacionRoutes := route.Group("/autenticacion")
+func Client_Routes(route *gin.Engine) {
+	autenticacionRoutes := route.Group("/client")
 	autenticacionRoutes.Use(Middlewares.CheckAuth())
 	{
-
-		autenticacionRoutes.POST("/login", Controllers.LoginUser)
-
-		//asd
+		autenticacionRoutes.POST("/create", Controllers.AddNewClient)
 	}
 
 }

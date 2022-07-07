@@ -10,24 +10,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func LoginUsuario(c *gin.Context) {
-	var credenciales Interfaces.Credenciales
+func LoginUser(c *gin.Context) {
+	var credenciales Interfaces.Credentials
 	c.BindJSON(&credenciales)
 
 	log.Println("INICIANDO SESION")
 	log.Println("CREDENCIALES:")
 	log.Println(credenciales)
 
-	var usuario Models.Usuario
-	err := Models.SearchUserForLogin(&usuario, credenciales.Username)
+	var user Models.User
+	err := Models.SearchUserForLogin(&user, credenciales.Username)
 	if err != nil {
 		// log.Println(err)
-		log.Println("Error autenticacion usuario no existe")
-		ApiHelpers.RespondLoginJSON(c, 404, nil, "Usuario no existe")
+		log.Println("Error autenticacion user no existe")
+		ApiHelpers.RespondLoginJSON(c, 404, nil, "User no existe")
 		return
 	}
 
-	hashClave := usuario.Password
+	hashClave := user.Password
 
 	claveCorrecta := Services.CheckPasswordHash(credenciales.Password, hashClave)
 
@@ -37,14 +37,14 @@ func LoginUsuario(c *gin.Context) {
 		return
 	}
 
-	var loginData Interfaces.TokenUsuarioLoginData
+	var loginData Interfaces.TokenUserLoginData
 
-	loginData.Id = int(usuario.ID)
-	loginData.Cui = usuario.Persona.Cui
-	loginData.Nombres = usuario.Persona.Nombres
-	loginData.Apellidos = usuario.Persona.Apellidos
-	loginData.Username = usuario.Username
-	loginData.Rol = usuario.Rol.Rol
+	loginData.Id = int(user.ID)
+	loginData.Cui = user.Persona.Cui
+	loginData.Nombres = user.Persona.Nombres
+	loginData.Apellidos = user.Persona.Apellidos
+	loginData.Username = user.Username
+	loginData.Rol = user.Rol.Rol
 
 	token, _ := Services.CreateToken(loginData)
 	ApiHelpers.RespondLoginJSON(c, 200, token, "Sesion iniciada")

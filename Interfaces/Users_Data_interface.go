@@ -1,11 +1,11 @@
 package Interfaces
 
-type Credenciales struct {
+type Credentials struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
 
-type DatosRegistroUsuario struct {
+type DatosRegistroUser struct {
 	Cui        string `json:"cui"`
 	Nombres    string `json:"nombres"`
 	Apellidos  string `json:"apellidos"`
@@ -15,7 +15,7 @@ type DatosRegistroUsuario struct {
 	Rol_id     int    `json:"rol_id"`
 }
 
-type TokenUsuarioLoginData struct {
+type TokenUserLoginData struct {
 	Id        int
 	Cui       string
 	Nombres   string

@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Usuario struct {
+type User struct {
 	gorm.Model
 	Username   string  `json:"username"`
 	Password   string  `json:"password"`
@@ -17,45 +17,45 @@ type Usuario struct {
 	Rol        Rol     `gorm:"foreignkey:Rol_id"`
 }
 
-func (b *Usuario) TableName() string {
-	return "usuario"
+func (b *User) TableName() string {
+	return "user"
 }
 
-func GetAllUsuario(b *[]Usuario) (err error) {
+func GetAllUser(b *[]User) (err error) {
 	if err = Database.DB.Joins("Rol").Joins("Persona").Find(b).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-func AddNewUsuario(b *Usuario) (err error) {
+func AddNewUser(b *User) (err error) {
 	if err = Database.DB.Create(b).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-func GetOneUsuario(b *Usuario, id string) (err error) {
+func GetOneUser(b *User, id string) (err error) {
 	if err := Database.DB.Joins("Rol").Where("id = ?", id).First(b).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-func SearchUserForLogin(b *Usuario, username string) (err error) {
+func SearchUserForLogin(b *User, username string) (err error) {
 	if err := Database.DB.Joins("Rol").Joins("Persona").Where("username = ?", username).First(b).Error; err != nil {
 		return err
 	}
 	return nil
 }
 
-func PutOneUsuario(b *Usuario, id string) (err error) {
+func PutOneUser(b *User, id string) (err error) {
 	fmt.Println(b)
 	Database.DB.Save(b)
 	return nil
 }
 
-func DeleteUsuario(b *Usuario, id string) (err error) {
+func DeleteUser(b *User, id string) (err error) {
 	Database.DB.Where("id = ?", id).Delete(b)
 	return nil
 }
