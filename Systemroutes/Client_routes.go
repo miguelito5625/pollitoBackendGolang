@@ -8,10 +8,11 @@ import (
 )
 
 func Client_Routes(route *gin.Engine) {
-	autenticacionRoutes := route.Group("/client")
+	autenticacionRoutes := route.Group("/clients")
 	autenticacionRoutes.Use(Middlewares.CheckAuth())
 	{
-		autenticacionRoutes.POST("/create", Controllers.AddNewClient)
+		autenticacionRoutes.GET("", Controllers.ListClient)
+		autenticacionRoutes.POST("", Controllers.AddNewClient)
 	}
 
 }

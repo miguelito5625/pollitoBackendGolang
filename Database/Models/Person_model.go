@@ -9,10 +9,14 @@ import (
 
 type Persona struct {
 	gorm.Model
-	Cui        string `gorm:"unique", json:"cui"`
-	Nombres    string `json:"nombres"`
-	Apellidos  string `json:"apellidos"`
-	Nacimiento string `json:"nacimiento"`
+	Dpi             string `gorm:"unique", json:"dpi"`
+	PrimerNombre    string `json:"primer_nombre"`
+	SegundoNombre   string `json:"segundo_nombre"`
+	PrimerApellido  string `json:"primer_apellido"`
+	SegundoApellido string `json:"segundo_apellido"`
+	Departamento    string `json:"departamento"`
+	Municipio       string `json:"municipio"`
+	Direccion       string `json:"direccion"`
 }
 
 func (b *Persona) TableName() string {

@@ -9,6 +9,7 @@ import (
 func MigrateAll() {
 	Database.DB.AutoMigrate(&Models.Rol{})
 	Database.DB.AutoMigrate(&Models.User{})
+	Database.DB.AutoMigrate(&Models.Cliente{})
 	insertData()
 }
 

@@ -4,8 +4,6 @@ import (
 	"log"
 	"pollitoBackendGolang/ApiHelpers"
 	"pollitoBackendGolang/Database/Models"
-	"pollitoBackendGolang/Interfaces"
-	"pollitoBackendGolang/Services"
 
 	"github.com/gin-gonic/gin"
 )
@@ -23,33 +21,35 @@ func ListUser(c *gin.Context) {
 }
 
 func AddNewUser(c *gin.Context) {
-	var datosRegistroUser Interfaces.DatosRegistroUser
-	c.BindJSON(&datosRegistroUser)
+	// var datosRegistroUser Interfaces.DatosRegistroUser
+	// c.BindJSON(&datosRegistroUser)
 
-	persona := Models.Persona{
-		Cui:        datosRegistroUser.Cui,
-		Nombres:    datosRegistroUser.Nombres,
-		Apellidos:  datosRegistroUser.Apellidos,
-		Nacimiento: datosRegistroUser.Nacimiento,
-	}
+	// persona := Models.Persona{
+	// 	Cui:        datosRegistroUser.Cui,
+	// 	Nombres:    datosRegistroUser.Nombres,
+	// 	Apellidos:  datosRegistroUser.Apellidos,
+	// 	Nacimiento: datosRegistroUser.Nacimiento,
+	// }
 
-	hashedPassword, _ := Services.HashPassword(datosRegistroUser.Password)
+	// hashedPassword, _ := Services.HashPassword(datosRegistroUser.Password)
 
-	user := Models.User{
-		Username: datosRegistroUser.Username,
-		Password: hashedPassword,
-		Persona:  persona,
-		Rol_id:   datosRegistroUser.Rol_id,
-	}
+	// user := Models.User{
+	// 	Username: datosRegistroUser.Username,
+	// 	Password: hashedPassword,
+	// 	Persona:  persona,
+	// 	Rol_id:   datosRegistroUser.Rol_id,
+	// }
 
-	err := Models.AddNewUser(&user)
-	if err != nil {
-		log.Println("Error on insert user:", err)
-		ApiHelpers.RespondJSON(c, 500, user, "Error al intentar crear el user")
-	} else {
-		log.Println("User creado: ", user)
-		ApiHelpers.RespondJSON(c, 200, user, "User creado")
-	}
+	// err := Models.AddNewUser(&user)
+	// if err != nil {
+	// 	log.Println("Error on insert user:", err)
+	// 	ApiHelpers.RespondJSON(c, 500, user, "Error al intentar crear el user")
+	// } else {
+	// 	log.Println("User creado: ", user)
+	// 	ApiHelpers.RespondJSON(c, 200, user, "User creado")
+	// }
+
+	ApiHelpers.RespondJSON(c, 200, "user", "User creado")
 
 }
 
