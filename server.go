@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 	"os"
-	"pollitoBackendGolang/Database"
-	"pollitoBackendGolang/Database/Migrations"
 	"pollitoBackendGolang/Systemroutes"
 	"time"
 
@@ -13,8 +11,8 @@ import (
 
 func main() {
 
-	Database.ConnectDataBase()
-	Migrations.MigrateAll()
+	// Database.ConnectDataBase()
+	// Migrations.MigrateAll()
 
 	//No utilizar en app engine//////////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,11 +38,19 @@ func main() {
 		panic(err)
 	}
 	currentTime := time.Now().In(location)
+	fmt.Println("ESTO ES UNA PRUEBA")
+
+	dbIP, ok := os.LookupEnv("DB_IP")
+	if !ok {
+		// La variable de entorno no está definida
+		dbIP = "error"
+	}
 
 	r.GET("/", func(c *gin.Context) {
+		fmt.Println("ESTO ES UNA PRUEBA2")
 		c.JSON(200, gin.H{
 			"message": "Mike Hello!!! " + os.Getenv("TEST_MESSAGE"),
-			"DB_IP":   os.Getenv("DB_IP"),
+			"DB_IP":   dbIP,
 			"DATE: ":  currentTime.Format("2006-01-02 15:04:05"),
 		})
 	})
